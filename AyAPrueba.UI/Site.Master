@@ -1,0 +1,281 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AyAPrueba.UI.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+   <%-- <style>
+        #menu-wrapper ul 
+        {
+            padding: 0;
+            list-style: none;
+        }
+
+        #menug > li 
+        {
+            display: inline-block;
+        }
+
+        #menug > li > a 
+        {
+            display: block;
+            padding: 10px 5px;
+            width: 210px;
+        }
+
+        li ul 
+        {
+            position: absolute;
+            display: none;
+        }
+
+        .sub-menu a 
+        {
+            display: block;
+            padding: 10px 5px;
+            width: 170px;
+            
+        }
+
+        li:hover ul 
+        {
+            display:block;
+        }
+
+        #menu-wrapper, li ul 
+        {
+            background: #fff;
+            /*background: #000;*/
+
+        }
+        #menu-wrapper
+        {
+            position:fixed;
+            padding-left: 110px;
+        }
+
+        #menug 
+        {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        #menug a 
+        {
+            color: #000;
+            /*color: #fff;*/
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #menug ul > li:hover 
+        {
+            background: #f3eded;
+            /*text-shadow: 0 0 2px #000;*/
+        }
+    </style>--%>
+
+
+    <style>
+       #menuwrapper ul 
+        {
+            padding: 0;
+            list-style: none;
+        }
+
+        #menug > li 
+        {
+            display: inline-block;
+        }
+
+        #menug > li > a 
+        {
+            display: block;
+            padding: 10px 15px;
+            width: 190px;
+        }
+
+        li ul 
+        {
+            position: absolute;
+            display: none;
+
+        }
+
+        .sub-menu a 
+        {
+            display: block;
+            padding: 10px 5px;
+            width: 170px;
+            
+        }
+
+        li:hover ul 
+        {
+            display:block;
+
+        }
+
+        #menuwrapper, li ul 
+        {
+            /*background: #fff;*/
+            background: #000;
+            
+        }
+        #menuwrapper
+        {
+            position:fixed;
+            padding-left: 100px;
+            width: 100%;
+        }
+
+        #menug 
+        {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        #menug a 
+        {
+            /*color: #000;*/
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            
+        }
+
+     
+
+        #menug ul > li:hover 
+        {
+            background: #898989;
+            text-shadow: 0 0 2px #000;
+        }
+    </style>
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--Para obtener más información sobre cómo agrupar scripts en ScriptManager, consulte http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Scripts de marco--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Scripts del sitio--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <style>
+        #menutodo 
+        {
+            padding-top: 4%;
+        }
+    </style>
+        <div class="navbar navbar-inverse navbar-fixed-top" >
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" id="menuTitulo" runat="server" href="~/">| Inventario TI</a>
+                    <a class="navbar-brand" id="menuTitulo2" runat="server" href="#">Inventario TI</a>
+                    <a class="navbar-brand" id="cerrarSes" runat="server" onclick="Cerrar_Click" href="~/Login">| Cerrar Sesión</a>
+                    
+                </div>
+                <br />
+                
+                <%--<div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">--%>
+                        <%--<li><a runat="server" id="menuTitulo" href="~/">Inventario TI</a> </li>
+                        <li><a runat="server" id="menuTitulo2" href="#">Inventario TI</a> </li>--%>
+                        <%--<li><a runat="server" id="menuInicio" href="~/">Inicio</a></li>--%>
+                        <%--<li><a runat="server" id="menuAcerca" href="~/ListaUsuarios">Lista Usuario</a></li>--%>
+                        <%--<li><a runat="server" id="menuContacto" href="~/AgregarUsu">Agregar Usuario</a></li>
+                        <li><a runat="server" id="menuListCodConsu" href="~/ListaConsum">Códigos Consumibles</a></li>
+                        <li><a runat="server" id="menuAgregCodConsu" href="~/AgregarConsum">Agregar Código de Consumible</a></li>--%>
+                        <%--<li><a runat="server" id="menuListCodRep" href="~/ListaRep">Códigos Repuestos</a></li>
+                        <li><a runat="server" id="menuAgregCodRep" href="~/AgregarRep">Agregar Código de Repuesto</a></li>--%>
+                        <%--<li><a runat="server" id="menuListCodMat" href="~/ListaMat">Códigos Materiales</a></li>
+                        <li><a runat="server" id="menuAgregCodMat" href="~/AgregarMat">Agregar Código de Materiales</a></li>--%>
+                    <%--</ul>
+                </div>--%>
+            </div>
+        </div>
+        <div runat="server" id="menuwrapper">
+                        <ul id="menug" >
+
+                            <li><a runat="server" id="menuInicio" href="~/">Inicio</a></li>
+                            <li><a runat="server" id="menuUsuario" href="#">Usuarios</a>
+                                <ul class="sub-menu">
+                                    <li><a runat="server" id="menuListUser" href="~/ListaUsuarios">Lista</a></li>
+                                    <li><a runat="server" id="menuAgreUser" href="~/AgregarUsu">Agregar</a></li>
+                                </ul>
+                            </li>
+                            <li><a runat="server" id="A2" href="#">Consumibles</a>
+                                <ul class="sub-menu">
+                                    <li><a runat="server" id="menuListCodConsu" href="~/ListaConsum">Códigos</a></li>
+                                    <li><a runat="server" id="menuAgregCodConsu" href="~/AgregarConsum">Agregar Código</a></li>
+                                    <li><a runat="server" id="menuEntradaConsu" href="#">Entradas</a></li>
+                                    <li><a runat="server" id="menuSalidaConsu" href="#">Salidas</a></li>
+                                </ul>
+                            </li>
+                            <li><a runat="server" id="A5" href="#">Repuestos</a>
+                                <ul class="sub-menu">
+                                    <li><a runat="server" id="menuListCodRep" href="~/ListaRep">Códigos</a></li>
+                                    <li><a runat="server" id="menuAgregCodRep" href="~/AgregarRep">Agregar Código</a></li>
+                                    <li><a runat="server" id="menuEntradaRep" href="#">Entradas</a></li>
+                                    <li><a runat="server" id="menuSalidaRep" href="#">Salidas</a></li>
+                                </ul>
+                            </li>
+                            <li><a runat="server" id="A10" href="#">Materiales</a>
+                                <ul class="sub-menu">
+                                    <li><a runat="server" id="menuListCodMat" href="~/ListaMat">Códigos</a></li>
+                                    <li><a runat="server" id="menuAgregCodMat" href="~/AgregarMat">Agregar Código</a></li>
+                                    <li><a runat="server" id="menuEntradaMat" href="#">Entrada</a></li>
+                                    <li><a runat="server" id="menuSalidaMat" href="~/OrdenTrabajo">Generar OT</a></li>
+                                    <li><a runat="server" id="menuListOrdenes" href="~/ListaOT">Ordenes de trabajo</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+        <div id="menutodo"></div>
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - AyA GAM</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>

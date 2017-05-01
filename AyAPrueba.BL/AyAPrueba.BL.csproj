@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74CE1A59-5A8A-44FB-BE22-69146602343F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AyAPrueba.BL</RootNamespace>
+    <AssemblyName>AyAPrueba.BL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\MConsumible.cs" />
+    <Compile Include="Clases\MMaterial.cs" />
+    <Compile Include="Clases\MMaterialPedido.cs" />
+    <Compile Include="Clases\MOrdenTrabajo.cs" />
+    <Compile Include="Clases\MPedido.cs" />
+    <Compile Include="Clases\MRepuesto.cs" />
+    <Compile Include="Clases\MUsuario.cs" />
+    <Compile Include="Interfaces\IConsumible.cs" />
+    <Compile Include="Interfaces\IMateriales.cs" />
+    <Compile Include="Interfaces\IMaterialPedido.cs" />
+    <Compile Include="Interfaces\IOrdenTrabajo.cs" />
+    <Compile Include="Interfaces\IPedido.cs" />
+    <Compile Include="Interfaces\IRepuesto.cs" />
+    <Compile Include="Interfaces\IUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AyAPrueba.DATOS\AyAPrueba.DATOS.csproj">
+      <Project>{63a66787-12fc-4290-9477-5c5a5016b35e}</Project>
+      <Name>AyAPrueba.DATOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AyAPrueba.DS\AyAPrueba.DS.csproj">
+      <Project>{4e28aaaa-61cc-4b1f-9a17-7affd0a6455c}</Project>
+      <Name>AyAPrueba.DS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
